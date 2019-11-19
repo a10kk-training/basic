@@ -1,0 +1,24 @@
+hostname tax11
+!
+vlan 10
+ untagged ethernet 1
+ router-interface ve 10
+!
+vlan 20
+ untagged ethernet 3
+ router-interface ve 20
+!
+interface ethernet 1
+ enable
+!
+interface ethernet 3
+ enable
+!
+interface ve 10
+ ip address 10.0.1.11 255.255.255.0
+!
+interface ve 20
+ ip address 10.0.2.11 255.255.255.0
+!
+ip route 0.0.0.0 /0 10.0.1.1 
+!
