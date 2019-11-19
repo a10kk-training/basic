@@ -1,5 +1,27 @@
+Networkのサンプルコンフィグです。
 
 
 ```
-AAA
+
+```
+
+
+
+SLB-L4のサンプルコンフィグです。
+
+```
+slb server s1 10.0.2.18
+   port 80  tcp
+!
+slb server s2 10.0.2.19
+   port 80  tcp
+!
+slb service-group sg-80 tcp
+    method service-least-connection
+    member s1 80
+    member s2 80
+!
+slb virtual-server vip1 10.0.1.111
+   port 80  tcp
+      service-group sg-80
 ```
