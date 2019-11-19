@@ -8,3 +8,4 @@ slb server s1 1.1.1.1
 slb server s2 1.1.1.2
  port 80 tcp
 ```
+[slb01](configsample/slb01)
