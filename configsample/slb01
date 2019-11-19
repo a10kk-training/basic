@@ -1,0 +1,45 @@
+
+
+
+vlan 10
+  untagged ethernet 1
+  router-interface ve 10
+!
+vlan 20
+  untagged ethernet 2
+  router-interface ve 20
+!
+interface management
+  ip address 10.255.0.1 255.255.0.0
+!
+interface ethernet 1
+  enable
+!
+interface ethernet 2
+  enable
+!
+interface ve 10
+  ip address 192.168.1.254 255.255.255.0
+!
+interface ve 20
+  ip address 192.168.2.254 255.255.255.0
+!
+ip nat pool p1 192.168.2.100 192.168.2.100 netmask /24
+!
+slb server s1 192.168.2.1
+  port 80 tcp
+!
+slb server s2 192.168.2.2
+  port 80 tcp
+!
+slb service-group sg1 tcp
+  member s1 80
+  member s2 80
+!
+slb virtual-server vip1 192.168.1.100
+  port 80 http
+    source-nat pool p1
+    service-group sg1
+!
+
+
