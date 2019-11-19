@@ -1,11 +1,7 @@
 # Basic Training
 
-コンフィグのサンプル
+サンプルコンフィグへのリンク
 
-```
-slb server s1 1.1.1.1
- port 80 tcp
-slb server s2 1.1.1.2
- port 80 tcp
-```
-[slb01](configsample/slb01)
+- [ネットワーク設定](config/network)
+- [L4のSLB設定](config/slb-l4)
+
